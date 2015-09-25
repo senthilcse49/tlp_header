@@ -1,27 +1,24 @@
 import React from '../../server/node_modules/react/addons'
 
-/*
- * React Component "TLPBanner"
- * Functions: render , function responsible for creating the DOM elements like logo, 
- * brandname and the banner for the header
- * This is a subcomponent of HeaderContainer, wrapped inside tlpHeaderContainer
+/**
+ * This component creates the HTML template for TLP Banner which 
+ * includes banner image and logo,title on top of the banner .
  */
 
 export default class TLPBanner extends React.Component{
-  /* Function render
-   * returns the template for TLP Header which contain the banner, logo and the team name
-   */    
   render () {
     //have to add the logic for Deciding banner depends on screen width 
     //currently hardcoded with the first image  
-    let bannerObj = this.props.banners[0]
-    let logoObj = this.props.logo[0]
+    let teamBanner = this.props.banners[0]
+    let teamLogo = this.props.logo[0]
+    //Returns the tlp-banner element which enclosed banner img 
+    //and the banner content like logo and title
     return (
-      <section className = "tlpBanner" >
-        <img src = {bannerObj.url} className = "tlpBannerImg" alt = {bannerObj.name} />
-        <section className = "tlpBannerContent">
-          <img src = {logoObj.url} className = "tlpLogoImg" alt = {logoObj.name}/>
-          <label className = "tlpTeamName">{this.props.name}</label>
+      <section className = "tlp-banner" >
+        <img src = {teamBanner.url} className = "tlp-banner-img" alt = {teamBanner.name} />
+        <section className = "tlp-banner-content">
+          <img src = {teamLogo.url} className = "tlp-logo-img" alt = {teamLogo.name}/>
+          <label className = "tlp-team-name">{this.props.name}</label>
         </section>
       </section>
     )

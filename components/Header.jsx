@@ -2,60 +2,47 @@ import React from '../../server/node_modules/react/addons'
 import TLPBanner from "./banner.jsx"
 import TLPDetails from "./details.jsx"
 import TLPDepartments from "./departments.jsx"
-/*
- * React Component "TLPHeaderContainer"
- * Functions: getInitialState (called before the render function), 
- * render(function responsible for creating the DOM elements)
- * Components included: TLPHeader, TLPDetails, TLPDeparments
- * @return React Component TLPHeaderContainer
+
+/**
+ * This component creates the HTML template for TLP Header which includes
+ * banner, logo, title, description and department links.
  */
 
-
 export default class TLPHeader extends React.Component {
-  constructor (props) {
-    // Returning the header prototype object required for the initial rendering without any error 
-    super(props)  
-    this.state= {tlp: props.tlp}
-   
-  }
-  
-  /* Function render
-   * returns the template for TLP Header Container which includes React components like TLPBanner,
-   * TLPDetails and   TLPDepartments
-   */
-
   render () {
-    //Checking if banner data is available on the response  
-    //if it is available then Component will render TLPBanner
-    if (this.state.tlp.banners && this.state.tlp.banners.length > 0 && 
-      this.state.tlp.banners[0].url) {
-      // Including another React component "Header","TLP Details" and "TLP Departments"   
+    let tlp = this.props.tlp  
+    /*Adding condition to the check if the model data is available  
+      and banner data is available on the response  */
+    if (!tlp ) {
+      return (<section className = "tlp-header"></section>);  
+    } else if (tlp.banners && tlp.banners.length > 0 && tlp.banners[0].url) {
+      // Returning the template with other React components like "Details" and "Departments"
       return (
-        <section className = "tlpHeader">
+        <section className = "tlp-header">
           <TLPBanner 
-            name = {this.state.tlp.name} 
-            logo = { this.state.tlp.logos}
-            banners = {this.state.tlp.banners}
+            name = {tlp.name} 
+            logo = {tlp.logos}
+            banners = {tlp.banners}
           />
-          <section className = "tlpDetails">
+          <section className = "tlp-details">
             <TLPDetails
-              description = {this.state.tlp.description}
-              title = {this.state.tlp.name}
+              description = {tlp.description}
+              title = {tlp.name}
             />
-            <TLPDepartments departments = {this.state.tlp.departmentInfo.departments} />
+            <TLPDepartments departments = {tlp.departmentInfo.departments} />
           </section>
         </section>
       )
     } else {
-      // Including another React component "TLP Details" and "TLP Departments"   
+      // Returning the template with other React components like Banner, Details and Departments
       return (
-        <section className = "tlpHeaderContainer">
-          <section className = "tlpDetails">
+        <section className = "tlp-header">
+          <section className = "tlp-details">
             <TLPDetails 
-              description = {this.state.tlp.description}
-              title = {this.state.tlp.name}
+              description = {tlp.description}
+              title = {tlp.name}
             />
-            <TLPDepartments departments = {this.state.tlp.departmentInfo.departments} />
+            <TLPDepartments departments = {tlp.departmentInfo.departments} />
           </section>
         </section>
       )

@@ -9,18 +9,18 @@ section {
   display:block;
 }
 /* styles for the header that contain banner,logo and name */
-.tlpBanner {
+.tlp-banner {
   width:100%;
   height:100px;
   position:relative;
 }
 /* Banner style*/
-.tlpBanner img.tlpBannerImg {
+.tlp-banner img.tlp-banner-img {
   width:100%;
   height:100%;
 }
 /* Styles for logo and name */
-.tlpBanner .tlpBannerContent {
+.tlp-banner .tlp-banner-content {
   position:absolute;
   top:0%;
   left:0%;
@@ -30,69 +30,70 @@ section {
   color:white;
 }
 /* Logo styles */
-.tlpBannerContent .tlpLogoImg {
+.tlp-banner-content .tlp-logo-img {
   margin-left:2%;
 }
-.tlpBannerContent .tlpLogoImg,.tlpBannerContent .tlpTeamName {
+.tlp-banner-content .tlp-logo-img,.tlp-banner-content .tlp-team-name {
   float:left;
   line-height:100px;
   vertical-align: middle;
   color:white;
 }
-.tlpBanner img.tlpLogoImg {
+.tlp-banner img.tlp-logo-img {
     width:100px;
     height:100px;
 }
 
-.tlpDetails {
+.tlp-details {
   width:70%;
   float:right;
 }
 /* Clearing the float after the tlpDetails block which includes title,
 decription and department links */        
-.tlpDetails::after {
+.tlp-details::after {
   content:'';
   clear:both;
 }
 /* Applying styles for department links */        
-.tplDepartments nav ul {
+.tpl-departments nav ul {
   list-style: none;
   padding:0px;
 }
-.tplDepartments nav ul li {
+.tpl-departments nav ul li {
   display: inline-block;
  
 }
 /* Adding content | before department links excpet the first link */ 
-.tplDepartments nav ul li:nth-of-type(n+2)::before {
+.tpl-departments nav ul li:nth-of-type(n+2)::before {
   content: "|";
   margin-left:6px;
   margin-right:6px;
   color:#ccc;
 }
 
-.tplDepartments nav ul li a {
+.tpl-departments nav ul li a {
   color:inherit;
 }
 
 /* Applying styles for smaller screen */
 @media (max-width: 769px) {
   /* Hiding the banner,logo and team details */
-  .tlpBanner img.tplBannerImg,
-  .tlpBanner .tlpBannerContent .logoImg,
-  .tlpDetails {
+  .tlp-banner img.tlp-banner-img,
+  .tlp-banner .tlp-banner-content .tlp-logo-img,
+  .tlp-details {
     display:none;
   }
   /* Overriding the styles for tlpHeader  */    
-  .tlpBanner {
+  .tlp-banner {
     height:auto;
   }
   
-  .tlpBanner .tlpBannerContent {
+  .tlp-banner .tlp-banner-content {
     background:transparent;
   }
-  .tlpBanner .tlpTeamName {
-    color:inherit;
+  .tlp-banner .tlp-team-name {
+    color:black;
+    padding:5px;
     line-height:normal;
   }
 }

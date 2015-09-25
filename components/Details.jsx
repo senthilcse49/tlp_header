@@ -1,20 +1,17 @@
 import React from '../../server/node_modules/react/addons'
 
-/*
- * React Component "TLPDetails"
- * Functions: render , function responsible for creating the DOM elements like team title, 
- * and the description of the team
- * This is a subcomponent of HeaderContainer and wrapped inside subHeader
+/**
+ * This component creates the HTML template for TLP Details which includes
+ * title and description.
  */
+
 export default class TLPDetails extends React.Component {
-  /* Function render
-   * returns the template for TLP Deatils which contains the title and the description 
-   */ 
   render () {
+    //Returns the html elements for showing title and description   
     return (
       <section  >
-        <h4 className = "tlpTitle">{this.props.title}</h4>
-        <p className = "tlpDesc" >{this.props.description.head}</p>
+        <h4 className = "tlp-title">{this.props.title}</h4>
+        <p className = "tlp-desc" >{this.props.description.head}</p>
       </section>
     )
   }
