@@ -1,4 +1,4 @@
-import React from 'react/addons'
+import React from '../../server/node_modules/react/addons'
 
 /*
  * React Component "TLPDetails"

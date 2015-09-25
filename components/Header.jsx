@@ -1,4 +1,4 @@
-import React from "react/addons"
+import React from '../../server/node_modules/react/addons'
 import TLPBanner from "./banner.jsx"
 import TLPDetails from "./details.jsx"
 import TLPDepartments from "./departments.jsx"
