@@ -1,0 +1,98 @@
+/* Overriding the browser styles */
+body {
+  margin: 0px;
+}
+a {
+  text-decoration: none;
+}
+section {
+  display:block;
+}
+/* styles for the header that contain banner,logo and name */
+.tlpBanner {
+  width:100%;
+  height:100px;
+  position:relative;
+}
+/* Banner style*/
+.tlpBanner img.tlpBannerImg {
+  width:100%;
+  height:100%;
+}
+/* Styles for logo and name */
+.tlpBanner .tlpBannerContent {
+  position:absolute;
+  top:0%;
+  left:0%;
+  background-color:rgba(0,0,0,0.6);
+  width:100%;
+  height:100%;
+  color:white;
+}
+/* Logo styles */
+.tlpBannerContent .tlpLogoImg {
+  margin-left:2%;
+}
+.tlpBannerContent .tlpLogoImg,.tlpBannerContent .tlpTeamName {
+  float:left;
+  line-height:100px;
+  vertical-align: middle;
+  color:white;
+}
+.tlpBanner img.tlpLogoImg {
+    width:100px;
+    height:100px;
+}
+
+.tlpDetails {
+  width:70%;
+  float:right;
+}
+/* Clearing the float after the tlpDetails block which includes title,
+decription and department links */        
+.tlpDetails::after {
+  content:'';
+  clear:both;
+}
+/* Applying styles for department links */        
+.tplDepartments nav ul {
+  list-style: none;
+  padding:0px;
+}
+.tplDepartments nav ul li {
+  display: inline-block;
+ 
+}
+/* Adding content | before department links excpet the first link */ 
+.tplDepartments nav ul li:nth-of-type(n+2)::before {
+  content: "|";
+  margin-left:6px;
+  margin-right:6px;
+  color:#ccc;
+}
+
+.tplDepartments nav ul li a {
+  color:inherit;
+}
+
+/* Applying styles for smaller screen */
+@media (max-width: 769px) {
+  /* Hiding the banner,logo and team details */
+  .tlpBanner img.tplBannerImg,
+  .tlpBanner .tlpBannerContent .logoImg,
+  .tlpDetails {
+    display:none;
+  }
+  /* Overriding the styles for tlpHeader  */    
+  .tlpBanner {
+    height:auto;
+  }
+  
+  .tlpBanner .tlpBannerContent {
+    background:transparent;
+  }
+  .tlpBanner .tlpTeamName {
+    color:inherit;
+    line-height:normal;
+  }
+}
